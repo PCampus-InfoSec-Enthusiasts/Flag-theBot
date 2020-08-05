@@ -15,10 +15,10 @@ client = discord.Client()
 async def on_ready():
     guild = discord.utils.get(client.guilds, name=GUILD)
     print(f'{client.user} is online.\nHurray')
-    print(f'Connected in server {guild.name} -> id:{guild.id}')
+    # print(f'Connected in server {guild.name} -> id:{guild.id}')
 
-    members = ', '.join([member.name for member in guild.members])
-    print(f'The members in the server are {members}')
+    # members = ', '.join([member.name for member in guild.members])
+    # print(f'The members in the server are {members}')
 
 @client.event 
 async def on_member_join(member):
