@@ -17,21 +17,23 @@ def msgchecker(msg):
 
             if flag[:7] == 'pieCTF{' and flag[-1] == '}':
                 with open('chal.txt' ,'a') as chalfile:
-                    chalfile.write('Challenge: ' + chal + ' ' +flag)
+                    chalfile.write('Challenge: ' + chal + ' ' + flag + '\n')
                 response = 'Hurray\nNew challenge added.'
             else:
                 response = 'Sorry, the challenge is not added.\nIt must be in the form \"!challenge   add   challenge_statement  flag\" \nand the flag must be in form pieCTF\{flag_with_no_spaces\}'
 
 
         if args[0] == 'look':
+            line = int(args[1])-1
             with open('chal.txt' ,'r') as chalfile:
-                challine = chalfile.readlines()[int(args[1])-1].split()
+                challine = chalfile.readlines()[line].split()
                 chaltext = ' '.join(challine[1:-1])
-            response = chaltext
+            response = f'Challenge #{line+1}: {chaltext}'
 
         if args[0] == 'submit':
+            line = int(args[1])-1
             with open('chal.txt' ,'r') as chalfile:
-                challine = chalfile.readlines()[int(args[1])-1].split()
+                challine = chalfile.readlines()[line].split()
                 flag = challine[-1]
                 if args[2] == flag:
                     response = 'Wow! You are right!'
