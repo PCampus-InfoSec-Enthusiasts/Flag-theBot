@@ -25,11 +25,14 @@ def msgchecker(msg):
 
         if args[0] == 'look':
             with open('chal.txt' ,'r') as chalfile:
-                response = chalfile.readline(int(args[[1]]))[1:-1]
+                challine = chalfile.readlines()[int(args[1])-1].split()
+                chaltext = ' '.join(challine[1:-1])
+            response = chaltext
 
         if args[0] == 'submit':
             with open('chal.txt' ,'r') as chalfile:
-                flag = chalfile.readline(int(args[[1]]))[-1]
+                challine = chalfile.readlines()[int(args[1])-1].split()
+                flag = challine[-1]
                 if args[2] == flag:
                     response = 'Wow! You are right!'
                 else:
