@@ -37,7 +37,7 @@ async def on_message(message):
     
     # print(message)
 
-    msg = message.content[1:].split()
+    msg = message.content.split()[1:].split()
 
     response = msgchecker(msg)
     await message.channel.send(response)
