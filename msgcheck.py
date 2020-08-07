@@ -2,12 +2,12 @@ import joke_api.py
 
 def msgchecker(msg):
 
-    command = msg[0].lower()
+    command = msg[0]
     args = msg[1:]
     response = 'Invalid  command'
 
     if command == 'hello':
-        response = 'World!'
+        response = 'hello babu!'
 
     if command == 'repeat':
         response = ' '.join(args)
