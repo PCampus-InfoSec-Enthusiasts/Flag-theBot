@@ -1,3 +1,5 @@
+import joke_api.py
+
 def msgchecker(msg):
 
     command = msg[0].lower()
@@ -40,6 +42,13 @@ def msgchecker(msg):
                 else:
                     response = 'Sorry! Try again!'
                 
+    if command == 'joke':
+        joke = joke_api.get_joke()
+        print(joke)
 
-
+        if joke == False:
+            await message.channel.send("Uh-oh...I couldn't get a joke. Try again later. ;)")
+        else:
+            await message.channel.send(joke['setup'] + '\n' + joke['punchline'])
+    
     return response
