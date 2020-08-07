@@ -32,12 +32,19 @@ async def on_message(message):
     if message.author == client.user:
         return
     
-    if message.content[0] != '!':
+    msg = message.content.split()
+
+    print(msg[0])
+
+    if msg[0] != 'baje' and msg[0] != 'baaje':
         return
     
     # print(message)
 
-    msg = message.content[1:].split()
+    msg = msg[1:]
+
+    print(msg)
+
 
     response = msgchecker(msg)
     await message.channel.send(response)
