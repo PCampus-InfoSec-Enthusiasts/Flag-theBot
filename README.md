@@ -6,4 +6,4 @@ However, this bot will not only be for automating flag submission, it will also 
 
 If you are a Pulchowkian with an enthusiasm for InfoSec, why not join us? Join us here: https://discord.gg/y7wZc6r
 
-Niraula Baje will be waiting to greet you :smile:
+Niraula Baje is waiting to greet you :smile:
