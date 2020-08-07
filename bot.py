@@ -14,32 +14,33 @@ client = discord.Client()
 @client.event
 async def on_ready():
     guild = discord.utils.get(client.guilds, name=GUILD)
-    print(f'{client.user} is online.\nHurray')
-    # print(f'Connected in server {guild.name} -> id:{guild.id}')
+    print(f'{client.user} is online.\nHurray!')
+    print(f'Successfully connected to server {guild.name} -> id:{guild.id}')
 
     # members = ', '.join([member.name for member in guild.members])
     # print(f'The members in the server are {members}')
 
 @client.event 
 async def on_member_join(member):
+    guild = discord.utils.get(client.guilds, name=GUILD)
     await member.create_dm()
     await member.dm_channel.send(
-        f'Hello {member.name}, welcome to the Discord server.'
+        f"Hello {member.name}, welcome to {guild.name}. I am glad you are here! Type 'baje help' to see all the commands I can follow. Let's go!"
     )
 
 @client.event 
 async def on_message(message):
+    msg_parts = message.content.lower().split()
+    
     if message.author == client.user:
         return
     
-    if message.content.split()[0].lower() != 'baaje' or message.content.split()[0].lower() != 'baje':
+    if msg_parts[0] != 'baaje' or msg_parts[0] != 'baje':
         return
     
-    # print(message)
+    # msg = msg_parts[1:].split()
 
-    msg = message.content.split()[1:].split()
-
-    response = msgchecker(msg)
+    response = msgchecker(msg_parts[1:])
     await message.channel.send(response)
 
 client.run(TOKEN)
