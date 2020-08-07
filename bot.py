@@ -32,7 +32,7 @@ async def on_message(message):
     if message.author == client.user:
         return
     
-    if message.content.split()[0].casefold() != 'baaje' || message.content.split()[0].casefold() != 'baje':
+    if message.content.split()[0].lower() != 'baaje' or message.content.split()[0].lower() != 'baje':
         return
     
     # print(message)
