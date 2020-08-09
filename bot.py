@@ -14,6 +14,7 @@ client = discord.Client()
 @client.event
 async def on_ready():
     guild = discord.utils.get(client.guilds, name=GUILD)
+    
     print(f'{client.user} is online.\nHurray')
     # print(f'Connected in server {guild.name} -> id:{guild.id}')
 
@@ -34,16 +35,16 @@ async def on_message(message):
     
     msg = message.content.split()
 
-    print(msg[0])
+    # print(msg[0])
 
     if msg[0] != 'baje' and msg[0] != 'baaje':
         return
-    
+        
     # print(message)
 
     msg = msg[1:]
 
-    print(msg)
+    # print(msg)
 
 
     response = msgchecker(msg)
